@@ -1,7 +1,7 @@
 function findNeighbors(node, matrix) {
     let neighbors = [];
     const mLength = matrix.length-1;
-    let subArrLength = node[1].length;
+    let subArrLength = matrix[1].length-1;
     // Up
     if(node[0]) {
         let row = node[0] - 1;
@@ -26,7 +26,6 @@ function findNeighbors(node, matrix) {
         let index = node[1] + 1;
         neighbors.push([row, index]);
     }
-    console.log(neighbors)
     return neighbors;
 }
 
