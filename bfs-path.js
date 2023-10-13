@@ -31,8 +31,8 @@ function findNeighbors(node, matrix) {
 
 
 function bfsPath(matrix, startNode, endValue) { 
-    if(matrix[startNode[0],startNode[1]] = endValue) {
-        return startNode;
+    if(matrix[startNode[0],startNode[1]] === endValue) {
+        return [startNode];
     }
     let queue = [startNode];
     let res = [];
@@ -44,7 +44,6 @@ function bfsPath(matrix, startNode, endValue) {
         res.push(currNode);
         let currNeighbors = findNeighbors(currNode, matrix);
         if(matrix[currRow][currCol] === endValue) {
-            console.log(res);
             return res;
         }
         for(let neighbor of currNeighbors) {
