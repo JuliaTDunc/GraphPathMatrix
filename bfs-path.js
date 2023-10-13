@@ -30,8 +30,31 @@ function findNeighbors(node, matrix) {
 }
 
 
-function bfsPath(matrix, startNode, endValue) {
-    // Your code here
+function bfsPath(matrix, startNode, endValue) { 
+    if(matrix[startNode[0],startNode[1]] = endValue) {
+        return startNode;
+    }
+    let queue = [startNode];
+    let res = [];
+    let visited = new Set();
+    visited.add(`${startNode}`);
+    while(queue.length > 0){
+        let currNode = queue.shift();
+        let [currRow, currCol] = currNode;
+        res.push(currNode);
+        let currNeighbors = findNeighbors(currNode, matrix);
+        if(matrix[currRow][currCol] === endValue) {
+            console.log(res);
+            return res;
+        }
+        for(let neighbor of currNeighbors) {
+            if(!visited.has(`${neighbor}`)) {
+                visited.add(`${neighbor}`)
+                queue.push(neighbor);
+            }
+        }
+    }
+    return false;
 }
 
 
