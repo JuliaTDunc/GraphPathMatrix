@@ -1,13 +1,33 @@
 function findNeighbors(node, matrix) {
+    let neighbors = [];
+    const mLength = matrix.length-1;
+    let subArrLength = node[1].length;
     // Up
-
+    if(node[0]) {
+        let row = node[0] - 1;
+        let index = node[1];
+        neighbors.push([row,index])
+    }
     // Down
-
+    if(node[0] < mLength) {
+        let row = node[0] + 1;
+        let index = node[1];
+        neighbors.push([row,index])
+    }
     // Left
-
+    if(node[1]) {
+        let row = node[0];
+        let index = node[1] - 1;
+        neighbors.push([row, index]);
+    }
     // Right
-
-    // Your code here
+    if(node[1] < subArrLength) {
+        let row = node[0];
+        let index = node[1] + 1;
+        neighbors.push([row, index]);
+    }
+    console.log(neighbors)
+    return neighbors;
 }
 
 
@@ -69,5 +89,10 @@ function bfsPath(matrix, startNode, endValue) {
 // // false
 
 /*************DO NOT MODIFY UNDER THIS LINE ***************/
-
+const matrix1 = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+];
 module.exports = [findNeighbors, bfsPath];
